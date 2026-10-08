@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KABARIN — Stay Informed. Stay Connected.</title>
+    <meta name="description"
+        content="Calm, intentional, and authoritative visual journalism engineered for modern thinkers." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- 1. MOBILE TOP HEADER (< 768px) -->
+    <header class="mobile-header">
+        <div style="display:flex;align-items:center;gap:0.375rem;">
+            <button id="mobile-back-btn" data-view="home"
+                style="display:none;background:none;border:none;cursor:pointer;padding:0.25rem;">
+                <span class="material-symbols-outlined" style="font-size:24px;">arrow_back</span>
+            </button>
+            <a data-view="home" href="#" style="display:flex;align-items:center;text-decoration:none;color:inherit;"
+                title="KABARIN Home">
+                <img src="public/assets/images/logo-dark.svg" alt="KABARIN." style="height:28px;object-fit:contain;" />
+            </a>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.25rem;">
+            <button class="open-search-modal-btn"
+                style="background:none;border:none;cursor:pointer;padding:0.375rem;color:var(--on-surface);">
+                <span class="material-symbols-outlined" style="font-size:22px;">search</span>
+            </button>
+            <button data-view="saved"
+                style="background:none;border:none;cursor:pointer;padding:0.375rem;color:var(--on-surface);position:relative;">
+                <span class="material-symbols-outlined" style="font-size:22px;">bookmark_border</span>
+                <span class="bookmark-count-badge"
+                    style="position:absolute;top:2px;right:2px;background:var(--primary);color:#fff;font-size:9px;font-weight:700;width:14px;height:14px;border-radius:999px;display:none;align-items:center;justify-content:center;">0</span>
+            </button>
+            <button data-view="about"
+                style="background:var(--primary);color:#fff;border:none;border-radius:999px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;margin-left:0.25rem;">
+                <span class="material-symbols-outlined" style="font-size:16px;">person</span>
+            </button>
+        </div>
+    </header>
+    <!-- 2. DESKTOP BROADSHEET HEADER (>= 768px) -->
+    <header class="broadsheet-header">
+        <div class="desktop-header-inner">
+            <div class="top-ticker-strip">
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                    <span style="font-weight:700;text-transform:uppercase;color:var(--primary);">EDISI UTAMA</span>
+                    <span>•</span><span>JAKARTA 28°C</span>
+                    <span>•</span><span>TOKYO 19°C</span>
+                    <span>•</span><span>BERLIN 15°C</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:1rem;">
+                    <div data-article-id="silicon-frontier"
+                        style="display:flex;align-items:center;gap:0.375rem;cursor:pointer;">
+                        <span style="width:6px;height:6px;border-radius:999px;background:var(--primary);"></span>
+                        <span style="font-weight:700;text-transform:uppercase;font-size:10px;">Trending:</span>
+                        <span>Autonomous Micro-Grids in Pulau Banda</span>
+                    </div>
+                    <span>|</span><span>May 18, 2025</span>
+                </div>
+            </div>
+            <div class="brand-middle-row">
+                <div style="display:flex;align-items:center;gap:1rem;">
+                    <a data-view="home" class="brand-logo-wrap" href="#" title="KABARIN Home"
+                        style="display:flex;align-items:center;">
+                        <img src="public/assets/images/logo-dark.svg" alt="KABARIN."
+                            style="height:36px;object-fit:contain;" />
+                    </a>
+                    <span class="brand-slogan">Stay Informed. Stay Connected.</span>
+                </div>
+                <button class="search-input-btn open-search-modal-btn">
+                    <div style="display:flex;align-items:center;gap:0.5rem;">
+                        <span class="material-symbols-outlined" style="font-size:18px;">search</span>
+                        <span>Search breaking dispatches, topics, archives...</span>
+                    </div>
+                    <kbd
+                        style="background:var(--surface-highest);padding:0.125rem 0.375rem;border-radius:0.25rem;font-size:10px;font-weight:700;">⌘K</kbd>
+                </button>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                    <button class="primary-btn open-subscribe-modal-btn">Subscribe</button>
+                    <button data-view="saved" class="nav-btn-icon"
+                        style="background:none;border:none;cursor:pointer;padding:0.5rem;color:var(--secondary);position:relative;">
+                        <span class="material-symbols-outlined" style="font-size:22px;">bookmark_border</span>
+                        <span class="bookmark-count-badge"
+                            style="position:absolute;top:2px;right:2px;background:var(--primary);color:#fff;font-size:9px;font-weight:700;width:14px;height:14px;border-radius:999px;display:none;align-items:center;justify-content:center;">0</span>
+                    </button>
+                    <button data-view="about"
+                        style="background:var(--primary);color:#fff;border:none;border-radius:999px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                        <span class="material-symbols-outlined" style="font-size:18px;">person</span>
+                    </button>
+                </div>
+            </div>
+            <nav class="desktop-nav-strip">
+                <button class="nav-link active" data-view="home">All Stories</button>
+                <button class="nav-link" data-view="explore" data-filter-cat="all">Explore Dispatches</button>
+                <button class="nav-link" data-view="topics">Technology &amp; Future</button>
+                <button class="nav-link" data-view="explore" data-filter-cat="technology">Deep Tech</button>
+                <button class="nav-link" data-view="explore" data-filter-cat="national">National &amp; Civic</button>
+                <button class="nav-link" data-view="explore" data-filter-cat="entertainment">Culture &amp;
+                    Cinema</button>
+                <button class="nav-link" data-view="explore" data-filter-cat="lifestyle">Lifestyle &amp; Urban</button>
+                <button class="nav-link" data-view="about" style="margin-left:auto;">About KABARIN</button>
+            </nav>
+        </div>
+    </header>
+    <!-- VIEWPORT RESPONSIVE SIMULATION BAR -->
+    <aside class="viewport-preview-bar">
+        <div class="viewport-preview-box">
+            <div style="display:flex;align-items:center;gap:0.375rem;">
+                <span class="material-symbols-outlined" style="color:var(--primary);font-size:18px;">devices</span>
+                <span
+                    style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--on-surface-variant);">Preview
+                    Canvas</span>
+            </div>
+            <div class="viewport-buttons">
+                <button class="vp-btn" data-mode="mobile">
+                    <span class="material-symbols-outlined" style="font-size:14px;">smartphone</span> 390px
+                </button>
+                <button class="vp-btn" data-mode="tablet">
+                    <span class="material-symbols-outlined" style="font-size:14px;">tablet</span> 768px
+                </button>
+                <button class="vp-btn" data-mode="desktop">
+                    <span class="material-symbols-outlined" style="font-size:14px;">laptop</span> 1440px
+                </button>
+                <button class="vp-btn active" data-mode="full">
+                    <span class="material-symbols-outlined" style="font-size:14px;">fullscreen</span> Auto
+                </button>
+            </div>
+        </div>
+    </aside>
+    <!-- MAIN APP CONTAINER -->
+    <main class="main-body">
+        <div id="app-main-container" class="app-container mode-full">
+            <!-- ============================================== -->
+            <!-- VIEW 1: HOME EDITION -->
+            <!-- ============================================== -->
+            <section id="view-home" class="view-section active">
+                <!-- Live Ticker Ribbon -->
+                <div class="card-white"
+                    style="padding:0.75rem 1rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
+                    <div style="display:flex;align-items:center;gap:0.75rem;min-width:0;">
+                        <div
+                            style="display:flex;align-items:center;gap:0.375rem;background:rgba(184,21,0,0.1);color:var(--primary);padding:0.25rem 0.5rem;border-radius:0.375rem;font-size:11px;font-weight:700;text-transform:uppercase;shrink:0;">
+                            <span style="width:6px;height:6px;border-radius:999px;background:var(--primary);"></span>
+                            LIVE
+                        </div>
+                        <span id="ticker-text-display" data-view="article"
+                            style="font-size:0.8125rem;font-weight:500;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                            Tech leaders reach landmark consensus on ethical AI governance across Southeast Asia
+                        </span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.25rem;shrink:0;">
+                        <button id="ticker-prev-btn"
+                            style="background:none;border:none;cursor:pointer;padding:0.25rem;"><span
+                                class="material-symbols-outlined" style="font-size:18px;">chevron_left</span></button>
+                        <button id="ticker-next-btn"
+                            style="background:none;border:none;cursor:pointer;padding:0.25rem;"><span
+                                class="material-symbols-outlined" style="font-size:18px;">chevron_right</span></button>
+                    </div>
+                </div>
+                <!-- Topic Pills Strip -->
+                <div style="display:flex;align-items:center;gap:0.5rem;overflow-x:auto;margin-bottom:1.5rem;"
+                    class="no-scrollbar">
+                    <button class="primary-btn home-topic-pill active" ... data-home-cat="all">All Stories</button>
+                    <button class="vp-btn home-topic-pill" ... data-home-cat="technology">Technology</button>
+                    <button class="vp-btn home-topic-pill" ... data-home-cat="lifestyle">Lifestyle</button>
+                    <button class="vp-btn home-topic-pill" ... data-home-cat="entertainment">Entertainment</button>
+                    <button class="vp-btn home-topic-pill" ... data-home-cat="national">National</button>
+                    <button class="vp-btn home-topic-pill" ... data-home-cat="sports">Sports</button>
+                </div>
+                <!-- Cover Feature & Side Deck (Grid 12) -->
+                <div class="grid-12" style="margin-bottom:2.5rem;">
+                    <!-- Cover Story (7 cols) -->
+                    <article class="col-span-7 card-white" data-article-id="urban-gen-z"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="position:relative;width:100%;aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/genz-urban.jpg" alt="Cover Feature: Gen Z Urban Life"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                            <span class="badge-tag badge-dark" style="position:absolute;top:0.75rem;left:0.75rem;">Cover
+                                Feature</span>
+                            <span
+                                style="position:absolute;bottom:0.75rem;right:0.75rem;background:rgba(0,0,0,0.6);color:#fff;font-size:11px;padding:0.125rem 0.5rem;border-radius:0.25rem;">6
+                                min read</span>
+                        </div>
+                        <div
+                            style="padding:1.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                            <div>
+                                <div
+                                    style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;font-size:0.75rem;">
+                                    <span style="font-weight:700;color:var(--primary);text-transform:uppercase;">Urban
+                                        Geography</span>
+                                    <span>•</span><span>6 min read</span>
+                                </div>
+                                <h2 class="serif-font"
+                                    style="font-size:1.75rem;line-height:1.25;font-weight:700;margin-bottom:0.75rem;">
+                                    The Architecture of Solitude: Why Gen Z is Redesigning Urban Living
+                                </h2>
+                                <p style="font-size:0.875rem;color:var(--on-surface-variant);line-height:1.6;">
+                                    Faced with detached global platforms and rising tenancy costs, a bold generation is
+                                    turning micro-local. From community-owned tool libraries to tokenized storefront
+                                    co-ops, mutualist hyper-localism is reshaping metropolitan resilience.
+                                </p>
+                            </div>
+                            <div
+                                style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;">
+                                <div style="display:flex;align-items:center;gap:0.625rem;">
+                                    <div
+                                        style="width:32px;height:32px;border-radius:999px;background:#e5e2e1;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;">
+                                        AC</div>
+                                    <div>
+                                        <strong style="display:block;font-size:0.75rem;">Aria Chen</strong>
+                                        <span style="font-size:11px;color:var(--secondary);">Senior Editor • Jakarta
+                                            Bureau</span>
+                                    </div>
+                                </div>
+                                <button data-bookmark-id="urban-gen-z" data-title="The Silent Rewiring of Urban Life"
+                                    style="background:none;border:none;cursor:pointer;color:var(--secondary);padding:0.375rem;">
+                                    <span class="material-symbols-outlined"
+                                        style="font-size:20px;">bookmark_border</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Secondary Column (5 cols) -->
+                    <div class="col-span-5"
+                        style="display:flex;flex-direction:column;gap:1rem;justify-content:space-between;">
+                        <!-- Secondary 1 -->
+                        <article class="card-white" data-article-id="electric-aviation"
+                            style="padding:1.25rem;cursor:pointer;">
+                            <div style="display:flex;gap:1rem;align-items:flex-start;">
+                                <div style="flex:1;">
+                                    <span
+                                        style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;display:block;margin-bottom:0.25rem;">Mobility
+                                        &amp; Skies</span>
+                                    <h3 class="serif-font"
+                                        style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin-bottom:0.375rem;">
+                                        Silent Skies: The Quiet Revolution of Regional Electric Aviation</h3>
+                                    <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                        Regional air routes under 400 nautical miles are now cost-parity candidates with
+                                        turboprop alternatives.</p>
+                                </div>
+                                <img src="public/assets/images/electric-aviation.jpg" alt="Electric Aviation"
+                                    style="width:84px;height:84px;border-radius:0.5rem;object-fit:cover;" />
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:0.75rem;padding-top:0.5rem;border-top:1px solid var(--border-light);font-size:11px;color:var(--secondary);">
+                                <span>By Julian Moreno • 4m ago</span>
+                                <button data-bookmark-id="electric-aviation"
+                                    data-title="Electric Aviation's Break-even Moment"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </article>
+                        <!-- Secondary 2 -->
+                        <article class="card-white" data-article-id="analog-living"
+                            style="padding:1.25rem;cursor:pointer;">
+                            <div style="display:flex;gap:1rem;align-items:flex-start;">
+                                <div style="flex:1;">
+                                    <span
+                                        style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;display:block;margin-bottom:0.25rem;">Culture
+                                        &amp; Mind</span>
+                                    <h3 class="serif-font"
+                                        style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin-bottom:0.375rem;">
+                                        Analog Revival: Inside the Micro-Societies Rejecting Algorithms</h3>
+                                    <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                        Mechanical watches, tactile film cameras, and notebook journaling: why sensory
+                                        friction has become the ultimate luxury.</p>
+                                </div>
+                                <img src="public/assets/images/analog-living.jpg" alt="Analog Living"
+                                    style="width:84px;height:84px;border-radius:0.5rem;object-fit:cover;" />
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:0.75rem;padding-top:0.5rem;border-top:1px solid var(--border-light);font-size:11px;color:var(--secondary);">
+                                <span>By Sofia Lindqvist • 1h ago</span>
+                                <button data-bookmark-id="analog-living" data-title="The Rise of Analog Living"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </article>
+                        <!-- Thought of the Day Box -->
+                        <div
+                            style="background:var(--surface-container);border:1px solid var(--border-color);border-radius:1rem;padding:1.25rem;display:flex;gap:0.75rem;">
+                            <span class="material-symbols-outlined"
+                                style="color:var(--primary);font-size:28px;">format_quote</span>
+                            <div>
+                                <p class="serif-font"
+                                    style="font-size:0.9375rem;font-style:italic;font-weight:600;line-height:1.4;">
+                                    “Simplicity is the final achievement after one has played a vast quantity of notes.”
+                                </p>
+                                <span
+                                    style="font-size:10px;text-transform:uppercase;color:var(--secondary);display:block;margin-top:0.375rem;letter-spacing:0.05em;">KABARIN
+                                    Thought of the Day</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Trending Dispatches (Top 5 Ranked) -->
+                <div class="card-white" style="padding:1.5rem;margin-bottom:2.5rem;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+                        <div style="display:flex;align-items:center;gap:0.5rem;">
+                            <span class="material-symbols-outlined"
+                                style="color:var(--primary);font-size:22px;">local_fire_department</span>
+                            <h2 class="serif-font" style="font-size:1.375rem;font-weight:700;">Trending Dispatches</h2>
+                        </div>
+                        <span
+                            style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--secondary);letter-spacing:0.05em;">Top
+                            5 Today</span>
+                    </div>
+                    <div class="grid-5">
+                        <div style="cursor:pointer;" data-article-id="gallium-nitride">
+                            <span class="serif-font"
+                                style="font-size:2rem;font-weight:700;color:var(--primary);line-height:1;display:block;margin-bottom:0.25rem;">01</span>
+                            <span
+                                style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--secondary);display:block;">Deep
+                                Tech</span>
+                            <h3 class="serif-font"
+                                style="font-size:0.875rem;font-weight:700;line-height:1.35;margin-top:0.25rem;">The
+                                Semiconductor Frontier: Gallium Nitride &amp; The Post-Silicon Paradigm</h3>
+                            <span style="font-size:11px;color:var(--secondary);display:block;margin-top:0.375rem;">24.8k
+                                reads</span>
+                        </div>
+                        <div style="cursor:pointer;" data-article-id="quantum-computing">
+                            <span class="serif-font"
+                                style="font-size:2rem;font-weight:700;color:#906f69;line-height:1;display:block;margin-bottom:0.25rem;">02</span>
+                            <span
+                                style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--secondary);display:block;">Quantum
+                                Science</span>
+                            <h3 class="serif-font"
+                                style="font-size:0.875rem;font-weight:700;line-height:1.35;margin-top:0.25rem;">Quantum
+                                Error Correction Achieves Threshold in Fault-Tolerant Tests</h3>
+                            <span style="font-size:11px;color:var(--secondary);display:block;margin-top:0.375rem;">18.1k
+                                reads</span>
+                        </div>
+                        <div style="cursor:pointer;" data-article-id="tokyo-micro-apartments">
+                            <span class="serif-font"
+                                style="font-size:2rem;font-weight:700;color:#906f69;line-height:1;display:block;margin-bottom:0.25rem;">03</span>
+                            <span
+                                style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--secondary);display:block;">Architecture</span>
+                            <h3 class="serif-font"
+                                style="font-size:0.875rem;font-weight:700;line-height:1.35;margin-top:0.25rem;">Tokyo’s
+                                Micro-Apartment Blueprint: Modular Compact Spaces for Urbanites</h3>
+                            <span style="font-size:11px;color:var(--secondary);display:block;margin-top:0.375rem;">15.4k
+                                reads</span>
+                        </div>
+                        <div style="cursor:pointer;" data-article-id="passkeys-security">
+                            <span class="serif-font"
+                                style="font-size:2rem;font-weight:700;color:#906f69;line-height:1;display:block;margin-bottom:0.25rem;">04</span>
+                            <span
+                                style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--secondary);display:block;">Security
+                                &amp; Web</span>
+                            <h3 class="serif-font"
+                                style="font-size:0.875rem;font-weight:700;line-height:1.35;margin-top:0.25rem;">
+                                Zero-Trust Authentication: Why Cryptographic Passkeys Replace Passwords</h3>
+                            <span style="font-size:11px;color:var(--secondary);display:block;margin-top:0.375rem;">12.9k
+                                reads</span>
+                        </div>
+                        <div style="cursor:pointer;" data-article-id="indie-cinema">
+                            <span class="serif-font"
+                                style="font-size:2rem;font-weight:700;color:#906f69;line-height:1;display:block;margin-bottom:0.25rem;">05</span>
+                            <span
+                                style="font-size:10px;text-transform:uppercase;font-weight:700;color:var(--secondary);display:block;">Cinema
+                                &amp; Arts</span>
+                            <h3 class="serif-font"
+                                style="font-size:0.875rem;font-weight:700;line-height:1.35;margin-top:0.25rem;">The New
+                                Wave of Independent Cinema: Celluloid Defiance in a Streaming Era</h3>
+                            <span style="font-size:11px;color:var(--secondary);display:block;margin-top:0.375rem;">10.3k
+                                reads</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- The Chronological Stream (3 cards) -->
+                <div style="margin-bottom:2.5rem;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+                        <div>
+                            <span
+                                style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--secondary);display:block;">In-Depth
+                                Reporting</span>
+                            <h2 class="serif-font" style="font-size:1.5rem;font-weight:700;">The Chronological Stream
+                            </h2>
+                        </div>
+                        <button class="nav-link" data-view="explore"
+                            style="color:var(--primary);font-weight:700;">Browse Archive →</button>
+                    </div>
+                    <div class="grid-3">
+                        <article class="card-white" data-article-id="soil-sensors"
+                            style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                            <div style="aspect-ratio:16/10;background:#e4e2df;">
+                                <img src="public/assets/images/soil-sensors.jpg" alt="Soil sensors"
+                                    style="width:100%;height:100%;object-fit:cover;" />
+                            </div>
+                            <div
+                                style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                                <div>
+                                    <span
+                                        style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Agriculture</span>
+                                    <h3 class="serif-font"
+                                        style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.375rem 0;cursor:pointer;"
+                                        data-view="article">Regenerative Soil Sensors Open Scalable Paths to Carbon
+                                        Neutral Farming</h3>
+                                    <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                        Biodegradable subterranean probes enable real-time nitrogen monitoring without
+                                        plastic residue.</p>
+                                </div>
+                                <div
+                                    style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                    <span>By Marcus Vance • 3 min read</span>
+                                    <button data-bookmark-id="soil-sensors" data-title="Regenerative Soil Sensors"
+                                        style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                            class="material-symbols-outlined"
+                                            style="font-size:18px;">bookmark_border</span></button>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card-white" data-article-id="indie-vinyl-podcast"
+                            style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                            <div style="aspect-ratio:16/10;background:#e4e2df;">
+                                <img src="public/assets/images/indie-vinyl.jpg" alt="Indie Podcast Vinyl"
+                                    style="width:100%;height:100%;object-fit:cover;" />
+                            </div>
+                            <div
+                                style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                                <div>
+                                    <span
+                                        style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Sound
+                                        &amp; Audio</span>
+                                    <h3 class="serif-font"
+                                        style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.375rem 0;cursor:pointer;"
+                                        data-view="article">The Indie Podcast Movement Embraces Lossless Vinyl Pressings
+                                    </h3>
+                                    <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                        Narrative audio producers are creating collectible physical pressings with
+                                        archival commentaries.</p>
+                                </div>
+                                <div
+                                    style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                    <span>By Elena Rostova • 4 min read</span>
+                                    <button data-bookmark-id="indie-vinyl" data-title="Indie Podcast Vinyl Pressings"
+                                        style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                            class="material-symbols-outlined"
+                                            style="font-size:18px;">bookmark_border</span></button>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card-white" data-article-id="copenhagen-cycleways"
+                            style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                            <div style="aspect-ratio:16/10;background:#e4e2df;">
+                                <img src="public/assets/images/copenhagen-cycleways.jpg" alt="Copenhagen Cycleways"
+                                    style="width:100%;height:100%;object-fit:cover;" />
+                            </div>
+                            <div
+                                style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                                <div>
+                                    <span
+                                        style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Infrastructure</span>
+                                    <h3 class="serif-font"
+                                        style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.375rem 0;cursor:pointer;"
+                                        data-view="article">Copenhagen Expands Elevated Cycleways to Interconnect Outer
+                                        Suburbs</h3>
+                                    <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                        Commuters bypass vehicular congestion completely with weather-sheltered wooden
+                                        bridges.</p>
+                                </div>
+                                <div
+                                    style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                    <span>By Kåre Thomsen • 5 min read</span>
+                                    <button data-bookmark-id="copenhagen-cycleways"
+                                        data-title="Copenhagen Elevated Cycleways"
+                                        style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                            class="material-symbols-outlined"
+                                            style="font-size:18px;">bookmark_border</span></button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- Curated Topic Portfolios (4 cards) -->
+                <div style="margin-bottom:2.5rem;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+                        <div>
+                            <span
+                                style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--secondary);display:block;">Deep
+                                Exploration</span>
+                            <h2 class="serif-font" style="font-size:1.5rem;font-weight:700;">Topic Showcases</h2>
+                        </div>
+                        <button class="nav-link" data-view="topics"
+                            style="color:var(--primary);font-weight:700;">Explore All Topics →</button>
+                    </div>
+                    <div class="grid-4">
+                        <div style="position:relative;aspect-ratio:4/5;border-radius:1rem;overflow:hidden;background:#e4e2df;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem;"
+                            data-article-id="silicon-frontier">
+                            <img src="public/assets/images/microgrid-aerial.jpg"
+                                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+                            <div
+                                style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.85), transparent);">
+                            </div>
+                            <div style="position:relative;z-index:1;color:#fff;">
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary-fixed);text-transform:uppercase;display:block;">Clean
+                                    Tech</span>
+                                <h4 class="serif-font" style="font-size:1rem;font-weight:700;margin:0.25rem 0;">
+                                    Autonomous Island Micro-Grids</h4>
+                                <span style="font-size:11px;color:#dbdad7;">18 Articles →</span>
+                            </div>
+                        </div>
+                        <div style="position:relative;aspect-ratio:4/5;border-radius:1rem;overflow:hidden;background:#e4e2df;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem;"
+                            data-article-id="indie-cinema">
+                            <img src="public/assets/images/indie-cinema.jpg"
+                                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+                            <div
+                                style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.85), transparent);">
+                            </div>
+                            <div style="position:relative;z-index:1;color:#fff;">
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary-fixed);text-transform:uppercase;display:block;">Cinema
+                                    &amp; Arts</span>
+                                <h4 class="serif-font" style="font-size:1rem;font-weight:700;margin:0.25rem 0;">The
+                                    Micro-Budget Cinema Renaissance</h4>
+                                <span style="font-size:11px;color:#dbdad7;">12 Articles →</span>
+                            </div>
+                        </div>
+                        <div style="position:relative;aspect-ratio:4/5;border-radius:1rem;overflow:hidden;background:#e4e2df;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem;"
+                            data-article-id="urban-gen-z">
+                            <img src="public/assets/images/genz-urban.jpg"
+                                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+                            <div
+                                style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.85), transparent);">
+                            </div>
+                            <div style="position:relative;z-index:1;color:#fff;">
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary-fixed);text-transform:uppercase;display:block;">Lifestyle</span>
+                                <h4 class="serif-font" style="font-size:1rem;font-weight:700;margin:0.25rem 0;">The
+                                    Architecture of Solitude</h4>
+                                <span style="font-size:11px;color:#dbdad7;">24 Articles →</span>
+                            </div>
+                        </div>
+                        <div style="position:relative;aspect-ratio:4/5;border-radius:1rem;overflow:hidden;background:#e4e2df;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem;"
+                            data-article-id="copenhagen-cycleways">
+                            <img src="public/assets/images/copenhagen-cycleways.jpg"
+                                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+                            <div
+                                style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.85), transparent);">
+                            </div>
+                            <div style="position:relative;z-index:1;color:#fff;">
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary-fixed);text-transform:uppercase;display:block;">Mobility</span>
+                                <h4 class="serif-font" style="font-size:1rem;font-weight:700;margin:0.25rem 0;">
+                                    Copenhagen Sub-Zero Transit</h4>
+                                <span style="font-size:11px;color:#dbdad7;">15 Articles →</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dawn Dispatch Newsletter Banner -->
+                <div
+                    style="background:#1b1c1a;color:#fff;border-radius:1rem;padding:2rem;position:relative;overflow:hidden;margin-bottom:2rem;">
+                    <div style="position:relative;z-index:1;max-width:540px;">
+                        <span
+                            style="font-size:11px;font-weight:700;text-transform:uppercase;color:#ffdad4;letter-spacing:0.08em;display:flex;align-items:center;gap:0.375rem;">
+                            <span class="material-symbols-outlined" style="font-size:18px;">mark_email_read</span> Dawn
+                            Dispatch • 07:00 AM WIB
+                        </span>
+                        <h2 class="serif-font" style="font-size:1.75rem;font-weight:700;margin:0.5rem 0;">KABARIN
+                            Morning Briefing.</h2>
+                        <p style="font-size:0.8125rem;color:#e4e2df;line-height:1.6;margin-bottom:1.25rem;">
+                            Get 5 curated stories delivered to your inbox every dawn at 7:00 AM. Clear, authoritative,
+                            completely ad-free visual journalism engineered for your morning ritual.
+                        </p>
+                        <form
+                            onsubmit="event.preventDefault(); window.KABARIN.showToast('Subscribed to Dawn Dispatch!', 'mark_email_read');"
+                            style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+                            <input type="email" placeholder="Enter your email address..." required
+                                style="background:#fff;color:#1b1c1a;padding:0.625rem 1rem;border-radius:0.5rem;border:none;flex:1;min-width:200px;font-size:0.75rem;outline:none;" />
+                            <button class="primary-btn" type="submit" style="padding:0.625rem 1.25rem;">Subscribe Dawn
+                                →</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- ============================================== -->
+            <!-- VIEW 2: ARTICLE DETAIL (THE SILICON FRONTIER) -->
+            <!-- ============================================== -->
+            <section id="view-article" class="view-section">
+                <!-- Top Article Action Bar -->
+                <div
+                    style="display:flex;align-items:center;justify-content:space-between;padding-bottom:1rem;margin-bottom:1rem;border-bottom:1px solid var(--border-color);">
+                    <button data-view="home"
+                        style="background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:0.25rem;font-weight:700;font-size:0.75rem;color:var(--secondary);">
+                        <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span> Back to
+                        Stories
+                    </button>
+                    <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:var(--secondary);">
+                        <span id="article-category-label"
+                            style="color:var(--primary);font-weight:700;text-transform:uppercase;">Technology &amp;
+                            Society</span>
+                        <span>•</span><span id="article-date-label">May 18, 2025</span>
+                        <span>•</span><span id="article-readtime-label">6 min read</span>
+                    </div>
+                </div>
+                <div class="grid-12">
+                    <!-- Sticky Left Rail (Desktop) -->
+                    <aside class="col-span-2" style="display:none;" id="desktop-article-rail">
+                        <div style="position:sticky;top:180px;display:flex;flex-direction:column;gap:1rem;">
+                            <div class="card-white" style="padding:1rem;">
+                                <div
+                                    style="display:flex;justify-content:space-between;font-size:11px;font-weight:700;margin-bottom:0.375rem;">
+                                    <span>PROGRESS</span><span id="reading-pct-text"
+                                        style="color:var(--primary);">0%</span>
+                                </div>
+                                <div style="height:4px;background:#efeeeb;border-radius:999px;overflow:hidden;">
+                                    <div id="reading-progress-fill"
+                                        style="height:100%;width:0%;background:var(--primary);transition:width 0.1s ease;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-white" style="padding:1rem;">
+                                <span style="font-size:11px;font-weight:700;display:block;margin-bottom:0.5rem;">TEXT
+                                    SIZE</span>
+                                <div
+                                    style="display:flex;align-items:center;justify-content:space-between;background:#f5f3f0;padding:0.25rem;border-radius:0.5rem;">
+                                    <button id="font-decrease-btn"
+                                        style="background:#fff;border:none;width:26px;height:26px;border-radius:4px;cursor:pointer;font-weight:700;">A-</button>
+                                    <span id="font-indicator-text"
+                                        style="font-size:11px;font-weight:600;">Standard</span>
+                                    <button id="font-increase-btn"
+                                        style="background:#fff;border:none;width:26px;height:26px;border-radius:4px;cursor:pointer;font-weight:700;">A+</button>
+                                </div>
+                            </div>
+                            <div class="card-white" style="padding:1rem;display:flex;flex-direction:column;gap:0.5rem;">
+                                <span style="font-size:11px;font-weight:700;display:block;">SHARE</span>
+                                <button class="copy-link-action"
+                                    style="background:#f5f3f0;border:none;padding:0.375rem;border-radius:0.375rem;font-size:11px;display:flex;align-items:center;gap:0.25rem;cursor:pointer;">
+                                    <span class="material-symbols-outlined" style="font-size:16px;">link</span> Copy
+                                    Link
+                                </button>
+                                <button id="article-clap-btn"
+                                    style="background:#f5f3f0;border:none;padding:0.375rem;border-radius:0.375rem;font-size:11px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
+                                    <div style="display:flex;align-items:center;gap:0.25rem;">
+                                        <span id="clap-icon" class="material-symbols-outlined"
+                                            style="font-size:16px;">recommend</span> Applaud
+                                    </div>
+                                    <strong id="clap-count-text">1,482</strong>
+                                </button>
+                            </div>
+                        </div>
+                    </aside>
+                    <!-- Narrative Column (7 cols) -->
+                    <div class="col-span-7">
+                        <h1 id="article-title-heading" class="serif-font"
+                            style="font-size:2.25rem;line-height:1.2;font-weight:700;margin-bottom:0.75rem;">
+                            The Silicon Frontier: How Autonomous Micro-Grids Are Quietly Solving Energy Poverty in
+                            Remote Island Communities
+                        </h1>
+                        <p id="article-deck-sub"
+                            style="font-size:1.0625rem;color:var(--on-surface-variant);line-height:1.6;margin-bottom:1.5rem;">
+                            From decentralized solar arrays to predictive machine-learning load balancers, localized
+                            clean energy is leapfrogging legacy power infrastructure across Southeast Asia’s
+                            archipelagos.
+                        </p>
+                        <!-- Audio Narration Pill -->
+                        <div class="audio-narration-box" style="margin-bottom:1.5rem;">
+                            <div style="display:flex;align-items:center;gap:0.75rem;">
+                                <button id="audio-play-btn"
+                                    style="width:40px;height:40px;border-radius:999px;background:var(--primary);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                                    <span id="audio-icon" class="material-symbols-outlined"
+                                        style="font-size:22px;">play_arrow</span>
+                                </button>
+                                <div>
+                                    <strong id="audio-status-label" style="font-size:0.8125rem;display:block;">Listen to
+                                        this story</strong>
+                                    <span id="audio-meta-text" style="font-size:11px;color:var(--secondary);">Narrated
+                                        by AI Editorial Voice (Jakarta-Neutral) • 6:42</span>
+                                </div>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:2px;">
+                                <span class="waveform-bar" style="height:8px;"></span>
+                                <span class="waveform-bar" style="height:14px;"></span>
+                                <span class="waveform-bar" style="height:8px;"></span>
+                                <span class="waveform-bar" style="height:12px;"></span>
+                            </div>
+                        </div>
+                        <!-- Author Byline -->
+                        <div
+                            style="display:flex;align-items:center;justify-content:space-between;padding-bottom:1rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border-color);">
+                            <div style="display:flex;align-items:center;gap:0.75rem;">
+                                <img id="article-author-avatar" src="public/assets/images/author-aris-thorne.jpg"
+                                    alt="Dr. Aris Thorne"
+                                    style="width:48px;height:48px;border-radius:999px;object-fit:cover;" />
+                                <div>
+                                    <div style="display:flex;align-items:center;gap:0.375rem;">
+                                        <strong id="article-author-name" style="font-size:0.875rem;">Dr. Aris
+                                            Thorne</strong>
+                                        <button id="author-follow-btn"
+                                            style="background:none;border:none;cursor:pointer;color:var(--primary);font-size:11px;font-weight:700;">+
+                                            Follow</button>
+                                    </div>
+                                    <span id="article-author-role" style="font-size:11px;color:var(--secondary);">Senior
+                                        Energy &amp; Infrastructure Correspondent</span>
+                                </div>
+                            </div>
+                            <button id="article-bookmark-btn" data-bookmark-id="silicon-frontier"
+                                data-title="The Silicon Frontier"
+                                style="background:none;border:none;cursor:pointer;color:var(--secondary);padding:0.5rem;">
+                                <span class="material-symbols-outlined" style="font-size:22px;">bookmark_border</span>
+                            </button>
+                        </div>
+                        <!-- Hero Photography -->
+                        <figure style="margin-bottom:2rem;">
+                            <div
+                                style="width:100%;aspect-ratio:16/10;border-radius:1rem;overflow:hidden;background:#e4e2df;position:relative;">
+                                <img id="article-hero-img" src="public/assets/images/microgrid-aerial.jpg"
+                                    alt="Pulau Banda Micro-Grid" style="width:100%;height:100%;object-fit:cover;" />
+                                <span id="article-hero-badge" class="badge-tag badge-dark"
+                                    style="position:absolute;top:0.75rem;left:0.75rem;">Field Dispatch • Pulau
+                                    Banda</span>
+                            </div>
+                            <figcaption
+                                style="display:flex;justify-content:space-between;gap:1rem;font-size:11px;color:var(--secondary);margin-top:0.5rem;">
+                                <span id="article-hero-caption">Solar storage micro-inverter array operating on Pulau
+                                    Banda. Battery modules maintain high frequency during tropical storm surges.</span>
+                                <strong id="article-hero-credit" style="color:var(--on-surface);shrink:0;">Elena Ramos /
+                                    KABARIN</strong>
+                            </figcaption>
+                        </figure>
+                        <!-- Reading Body Narrative -->
+                        <div id="article-body-narrative"
+                            style="font-size:1.0625rem;line-height:1.85;color:var(--on-surface);">
+                            <p class="drop-cap">
+                                Under the equatorial sun of the Molucca archipelago, dusk once meant one thing: the
+                                deafening drone of diesel generators rattling zinc roofs. For over three decades, fuel
+                                drums arrived irregularly across choppy strait waters on wooden fishing hulls, costing
+                                village collectives up to four times the retail benchmark in Jakarta or Surabaya. If the
+                                monsoon turned vicious, whole islands plunged into blackouts lasting weeks.
+                            </p>
+                            <p style="margin:1.25rem 0;">
+                                Today, however, an unassuming array of matte-black silicon panels perched along the
+                                volcanic hillside tells a completely divergent story. Powered by autonomous
+                                edge-computing micro-controllers and salt-tolerant lithium iron phosphate (LFP) storage,
+                                Banda’s localized grid balances kilowatts with sub-second precision, entirely severed
+                                from the brittle continental mainland.
+                            </p>
+                            <!-- Editorial Pull Quote -->
+                            <blockquote class="editorial-pull-quote">
+                                <p class="serif-font"
+                                    style="font-size:1.25rem;font-style:italic;font-weight:600;line-height:1.4;">
+                                    “We didn’t wait for the centralized grid to arrive. The future arrived in shipping
+                                    containers, pre-configured for sunshine.”
+                                </p>
+                                <cite
+                                    style="display:block;margin-top:0.5rem;font-size:11px;text-transform:uppercase;color:var(--secondary);font-style:normal;font-weight:700;">
+                                    — Bapak Harun Sulaeman, Cooperative Lead, Banda Neira
+                                </cite>
+                            </blockquote>
+                            <h2 class="serif-font" style="font-size:1.5rem;font-weight:700;margin:1.5rem 0 0.75rem;">
+                                The Death of Transmission Losses
+                            </h2>
+                            <p style="margin-bottom:1.25rem;">
+                                Centralized grids depend on expensive high-voltage undersea cables that bleed
+                                transmission efficiency with every nautical league crossed. By contrast, these island
+                                nodes employ hyper-localized DC micro-grids paired with algorithmic load prioritization.
+                                Machine learning scripts analyze localized meteorological satellite data to forecast
+                                cloud cover four hours ahead, pre-charging battery units or shifting cold-storage
+                                freezing schedules to peak radiance windows.
+                            </p>
+                            <!-- Key Takeaways Bento Box -->
+                            <div class="bento-takeaways">
+                                <div
+                                    style="display:flex;align-items:center;gap:0.375rem;color:var(--primary);margin-bottom:0.75rem;">
+                                    <span class="material-symbols-outlined" style="font-size:20px;">bolt</span>
+                                    <strong
+                                        style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;">Key
+                                        Field Takeaways</strong>
+                                </div>
+                                <div style="display:flex;flex-direction:column;gap:0.75rem;font-size:0.8125rem;">
+                                    <div>
+                                        <strong style="color:var(--primary);">78% Diesel Reduction:</strong> Fuel
+                                        expenditure plummeted from $14,000 to under $3,000 monthly per coastal
+                                        settlement.
+                                    </div>
+                                    <div>
+                                        <strong style="color:var(--primary);">Autonomous Islanding (12ms):</strong> The
+                                        micro-grids decouple sub-second during weather anomalies, avoiding cascading
+                                        grid collapse.
+                                    </div>
+                                    <div>
+                                        <strong style="color:var(--primary);">Fisheries Cold Chain (3.4x):</strong>
+                                        Continuous ice production boosted fishermen profit margins by 34% by eradicating
+                                        post-catch spoilage.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Secondary Photo -->
+                            <figure style="margin:2rem 0;">
+                                <div style="aspect-ratio:16/9;border-radius:1rem;overflow:hidden;background:#e4e2df;">
+                                    <img src="public/assets/images/engineer-dewi-lestari.jpg"
+                                        alt="Engineer Dewi Lestari" style="width:100%;height:100%;object-fit:cover;" />
+                                </div>
+                                <figcaption style="font-size:11px;color:var(--secondary);margin-top:0.375rem;">
+                                    Lead field engineer Dewi Lestari monitors load oscillation on the open-source
+                                    firmware controlling the regional inverter array.
+                                </figcaption>
+                            </figure>
+                            <h2 class="serif-font" style="font-size:1.5rem;font-weight:700;margin:1.5rem 0 0.75rem;">
+                                Community Ownership as Security
+                            </h2>
+                            <p>
+                                Technical durability is only half the triumph. What sets the Eastern Archipelago
+                                rollouts apart from failed international aid initiatives of the past is their economic
+                                design. Villages manage their own micro-utilities through collective tokenized digital
+                                wallets. Villagers pay micro-tariffs via QRIS mobile payments, with surpluses directly
+                                funding local school connectivity hubs.
+                            </p>
+                            <p style="margin-top:1.25rem;">
+                                “When a machine belongs to everyone in the harbor,” adds Thorne, “maintenance becomes a
+                                daily pride rather than somebody else’s deferred headache.”
+                            </p>
+                        </div>
+                        <!-- Author Bio Card -->
+                        <div class="card-white"
+                            style="padding:1.5rem;margin:2.5rem 0;display:flex;gap:1rem;align-items:flex-start;">
+                            <img id="article-author-bio-avatar" src="public/assets/images/author-aris-thorne.jpg"
+                                alt="Dr. Aris Thorne"
+                                style="width:60px;height:60px;border-radius:999px;object-fit:cover;" />
+                            <div>
+                                <h3 id="article-author-bio-name" class="serif-font"
+                                    style="font-size:1.125rem;font-weight:700;">About Dr. Aris Thorne</h3>
+                                <p id="article-author-bio-text"
+                                    style="font-size:0.8125rem;color:var(--on-surface-variant);line-height:1.5;margin-top:0.25rem;">
+                                    Specializing in emerging energy systems across island nations, Aris holds a
+                                    doctorate in Clean Energy Infrastructure and reports regularly from the frontlines
+                                    of renewable autonomy.
+                                </p>
+                                <button data-view="explore" class="nav-link"
+                                    style="color:var(--primary);font-size:11px;font-weight:700;margin-top:0.5rem;display:inline-block;">Read
+                                    24 past stories →</button>
+                            </div>
+                        </div>
+                        <!-- Comments Discussion Section -->
+                        <div style="margin:2.5rem 0;">
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+                                <h3 class="serif-font" style="font-size:1.25rem;font-weight:700;">Community Conversation
+                                </h3>
+                                <span style="font-size:11px;color:var(--secondary);">Guidelines apply</span>
+                            </div>
+                            <form id="post-comment-form" class="card-white" style="padding:1rem;margin-bottom:1rem;">
+                                <textarea id="comment-textarea"
+                                    placeholder="Contribute your insight on micro-grid autonomy..." required
+                                    style="width:100%;height:60px;border:none;outline:none;font-family:inherit;font-size:0.8125rem;resize:none;background:transparent;"></textarea>
+                                <div
+                                    style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border-light);padding-top:0.5rem;">
+                                    <span style="font-size:11px;color:var(--secondary);">Keep it thoughtful &amp;
+                                        civil</span>
+                                    <button type="submit" class="primary-btn"
+                                        style="padding:0.375rem 0.875rem;font-size:11px;">Publish Insight</button>
+                                </div>
+                            </form>
+                            <div id="comments-stream">
+                                <div class="card-white" style="padding:1rem;">
+                                    <div
+                                        style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+                                        <div style="display:flex;align-items:center;gap:0.5rem;">
+                                            <div
+                                                style="width:28px;height:28px;border-radius:999px;background:#efeeeb;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;">
+                                                RK</div>
+                                            <div><strong style="font-size:0.75rem;">Rian Kusuma</strong> <span
+                                                    style="font-size:11px;color:var(--secondary);">• Renewable
+                                                    Engineer</span></div>
+                                        </div>
+                                        <span style="font-size:11px;color:var(--secondary);">2h ago</span>
+                                    </div>
+                                    <p style="font-size:0.8125rem;line-height:1.5;">The salt-mist corrosion tolerance is
+                                        the real engineering feat here. Many projects fall apart within 18 months
+                                        because inverter heat sinks oxidize in marine air. Glad to see sealed LFP
+                                        containers deployed!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Related Column (3 cols) -->
+                    <aside class="col-span-3">
+                        <div style="position:sticky;top:180px;display:flex;flex-direction:column;gap:1.5rem;">
+                            <div class="card-white" style="padding:1.25rem;">
+                                <span
+                                    style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--secondary);display:block;margin-bottom:0.75rem;">More
+                                    Dispatches</span>
+                                <div id="article-related-stream" style="display:flex;flex-direction:column;gap:1rem;">
+                                    <div data-article-id="tokyo-micro-apartments"
+                                        style="cursor:pointer;padding-bottom:0.75rem;border-bottom:1px solid var(--border-light);">
+                                        <span
+                                            style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Architecture</span>
+                                        <h4 class="serif-font"
+                                            style="font-size:0.875rem;font-weight:700;line-height:1.3;margin-top:0.25rem;">
+                                            Tokyo’s Micro-Apartment Blueprint</h4>
+                                        <span
+                                            style="font-size:11px;color:var(--secondary);margin-top:0.25rem;display:block;">5
+                                            min read</span>
+                                    </div>
+                                    <div data-article-id="analog-living"
+                                        style="cursor:pointer;padding-bottom:0.75rem;border-bottom:1px solid var(--border-light);">
+                                        <span
+                                            style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Culture</span>
+                                        <h4 class="serif-font"
+                                            style="font-size:0.875rem;font-weight:700;line-height:1.3;margin-top:0.25rem;">
+                                            Analog Revival: Inside the Micro-Societies</h4>
+                                        <span
+                                            style="font-size:11px;color:var(--secondary);margin-top:0.25rem;display:block;">4
+                                            min read</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+            <!-- ============================================== -->
+            <!-- VIEW 3: EXPLORE STORIES & ARCHIVES -->
+            <!-- ============================================== -->
+            <section id="view-explore" class="view-section">
+                <div style="margin-bottom:1.5rem;">
+                    <span
+                        style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;">Dispatches
+                        &amp; Archives</span>
+                    <h1 class="serif-font" style="font-size:2rem;font-weight:700;margin:0.25rem 0;">Explore Stories</h1>
+                    <p style="font-size:0.875rem;color:var(--on-surface-variant);">Discover in-depth investigations,
+                        emerging culture, and global perspectives.</p>
+                </div>
+                <!-- Search Bar -->
+                <div class="card-white"
+                    style="padding:0.75rem 1rem;display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                    <span class="material-symbols-outlined" style="color:var(--secondary);font-size:22px;">search</span>
+                    <input id="explore-search-input" type="text" placeholder="Search topics, authors, or keywords..."
+                        style="border:none;outline:none;font-family:inherit;font-size:0.875rem;flex:1;background:transparent;" />
+                    <button id="explore-clear-search"
+                        style="display:none;background:none;border:none;cursor:pointer;color:var(--secondary);"><span
+                            class="material-symbols-outlined" style="font-size:18px;">close</span></button>
+                </div>
+                <!-- Popular Tags Chips -->
+                <div style="display:flex;align-items:center;gap:0.5rem;overflow-x:auto;margin-bottom:1.5rem;"
+                    class="no-scrollbar">
+                    <span
+                        style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--secondary);white-space:nowrap;">Popular:</span>
+                    <button class="vp-btn popular-chip-btn" data-tag="Artificial Intelligence"
+                        style="background:#efeeeb;border-radius:999px;">Artificial Intelligence</button>
+                    <button class="vp-btn popular-chip-btn" data-tag="Climate Policy"
+                        style="background:#efeeeb;border-radius:999px;">Climate Policy</button>
+                    <button class="vp-btn popular-chip-btn" data-tag="Indie Cinema"
+                        style="background:#efeeeb;border-radius:999px;">Indie Cinema</button>
+                    <button class="vp-btn popular-chip-btn" data-tag="Electric Mobility"
+                        style="background:#efeeeb;border-radius:999px;">Electric Mobility</button>
+                </div>
+                <!-- Category Tabs & Layout Controls -->
+                <div class="card-white"
+                    style="padding:0.75rem 1rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.5rem;">
+                    <div style="display:flex;gap:0.5rem;overflow-x:auto;" class="no-scrollbar">
+                        <button class="cat-filter-tab active vp-btn" data-category="all" ...>All Stories</button>
+                        <button class="cat-filter-tab vp-btn" data-category="technology" ...>Technology</button>
+                        <button class="cat-filter-tab vp-btn" data-category="lifestyle" ...>Lifestyle</button>
+                        <button class="cat-filter-tab vp-btn" data-category="entertainment" ...>Entertainment</button>
+                        <button class="cat-filter-tab vp-btn" data-category="national" ...>National</button>
+                        <button class="cat-filter-tab vp-btn" data-category="sports" ...>Sports</button>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.5rem;">
+                        <div style="background:#f5f3f0;padding:0.125rem;border-radius:0.5rem;display:flex;">
+                            <button id="view-grid-btn" class="vp-btn active"><span class="material-symbols-outlined"
+                                    style="font-size:18px;">grid_view</span></button>
+                            <button id="view-list-btn" class="vp-btn"><span class="material-symbols-outlined"
+                                    style="font-size:18px;">view_agenda</span></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Stories Grid -->
+                <div id="explore-stories-grid" class="grid-3">
+                    <!-- Story 1 -->
+                    <article class="card-white explore-story-card" data-category="technology"
+                        data-article-id="gallium-nitride"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/gallium-nitride.jpg" alt="Gallium Nitride"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Technology</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">The
+                                    Semiconductor Frontier: Gallium Nitride &amp; Power</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                    Wide-bandgap semiconductors replace silicon across AI server farms.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Kenji Sato • 8 min</span>
+                                <button data-bookmark-id="gallium-nitride" data-title="Gallium Nitride"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 2 -->
+                    <article class="card-white explore-story-card" data-category="technology"
+                        data-article-id="quantum-computing"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/quantum-computing.jpg" alt="Quantum Computing"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Technology</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">
+                                    Quantum Error Correction Achieves Threshold</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">Logical
+                                    qubit stabilization tests demonstrate physical noise suppression.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Dr. Sarah Chen • 7 min</span>
+                                <button data-bookmark-id="quantum-computing" data-title="Quantum Computing"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 3 -->
+                    <article class="card-white explore-story-card" data-category="technology"
+                        data-article-id="open-source-ai"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/open-source-ai.jpg" alt="Open Source AI"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Technology</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">
+                                    Open-Source LLMs Close the Efficiency Gap</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">Quantized
+                                    8-billion parameter models running locally match cloud clusters.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Kenji Sato • 6 min</span>
+                                <button data-bookmark-id="open-source-ai" data-title="Open-Source LLMs"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 4 -->
+                    <article class="card-white explore-story-card" data-category="lifestyle"
+                        data-article-id="tokyo-micro-apartments"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/tokyo-apartments.jpg" alt="Tokyo Apartments"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Lifestyle</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">
+                                    Tokyo’s Micro-Apartment Blueprint</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">Modular
+                                    compact spaces under 15 square meters redefine urban comfort.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Hiroshi Tanaka • 5 min</span>
+                                <button data-bookmark-id="tokyo-micro-apartments" data-title="Tokyo Micro-Apartments"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 5 -->
+                    <article class="card-white explore-story-card" data-category="entertainment"
+                        data-article-id="indie-cinema"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/indie-cinema.jpg" alt="Indie Cinema"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Entertainment</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">
+                                    Celluloid Defiance in a Streaming Monopoly</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                    Independent filmmakers deliberately shooting on 16mm celluloid stock.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Claire Moreau • 6 min</span>
+                                <button data-bookmark-id="indie-cinema" data-title="Indie Cinema"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 6 -->
+                    <article class="card-white explore-story-card" data-category="technology"
+                        data-article-id="passkeys-security"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/passkeys-security.jpg" alt="Passkeys Security"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Technology</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">
+                                    Zero-Trust Authentication &amp; Passkeys</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                    Hardware-bound cryptographic keys putting an end to credential phishing.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Tariq Al-Mansoor • 5 min</span>
+                                <button data-bookmark-id="passkeys-security" data-title="Passkeys Security"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 7 -->
+                    <article class="card-white explore-story-card" data-category="lifestyle"
+                        data-article-id="urban-gen-z"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/genz-urban.jpg" alt="Gen Z Urban Living"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Lifestyle</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">The
+                                    Architecture of Solitude in Modern Cities</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">Young
+                                    residents turn micro-studios into sanctuaries of quiet contemplation.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Elena Ramos • 6 min</span>
+                                <button data-bookmark-id="urban-gen-z" data-title="Architecture of Solitude"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 8 -->
+                    <article class="card-white explore-story-card" data-category="sports"
+                        data-article-id="electric-aviation"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/electric-aviation.jpg" alt="Electric Aviation"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Sports
+                                    &amp; Transit</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">Silent
+                                    Skies: Regional Electric Commuter Planes</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                    Battery-electric 19-seater aircraft revive disconnected regional airstrips.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Marcus Vance • 5 min</span>
+                                <button data-bookmark-id="electric-aviation" data-title="Electric Aviation"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 9 -->
+                    <article class="card-white explore-story-card" data-category="lifestyle"
+                        data-article-id="analog-living"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/analog-living.jpg" alt="Analog Living"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Lifestyle</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">Analog
+                                    Revival: Micro-Societies Rejecting Algorithms</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">Typewriter
+                                    salons, film cameras, and notebook journaling reclaim focus.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Maya Lin • 4 min</span>
+                                <button data-bookmark-id="analog-living" data-title="Analog Revival"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 10 -->
+                    <article class="card-white explore-story-card" data-category="sports"
+                        data-article-id="copenhagen-cycleways"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/copenhagen-cycleways.jpg" alt="Copenhagen Cycleways"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Sports
+                                    &amp; Transit</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">
+                                    Copenhagen’s Sub-Zero Heated Cycle Highways</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                    Geothermally heated cycle arterial bridges retain 72% winter modal share.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Astrid Lindholm • 4 min</span>
+                                <button data-bookmark-id="copenhagen-cycleways" data-title="Copenhagen Cycleways"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 11 -->
+                    <article class="card-white explore-story-card" data-category="technology"
+                        data-article-id="soil-sensors"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/soil-sensors.jpg" alt="Soil Sensors"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Technology</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">
+                                    Regenerative Agriculture &amp; Sub-Surface Sensors</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">Low-cost
+                                    impedance probes cut irrigation water by 62% in arid karst zones.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Bambang Soedjarwo • 4 min</span>
+                                <button data-bookmark-id="soil-sensors" data-title="Soil Sensors"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 12 -->
+                    <article class="card-white explore-story-card" data-category="entertainment"
+                        data-article-id="indie-vinyl-podcast"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/indie-vinyl.jpg" alt="Indie Vinyl Audio"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Entertainment</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">
+                                    Independent Audio &amp; Heavyweight Vinyl Wax</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">Audio
+                                    journalists partner with boutique pressing plants for permanent archives.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Julian Croft • 5 min</span>
+                                <button data-bookmark-id="indie-vinyl-podcast" data-title="Indie Vinyl Audio"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 13: National -->
+                    <article class="card-white explore-story-card" data-category="national"
+                        data-article-id="youth-voter-turnout"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/genz-urban.jpg" alt="Youth Civic Referendums"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">National</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">Youth
+                                    Voter Turnout Hits Historic High in Policy Referendums</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                    Mobile-first civic verification and direct neighborhood ballots redefine
+                                    participatory democracy.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>Marcus Vance • 6 min</span>
+                                <button data-bookmark-id="youth-voter-turnout" data-title="Youth Civic Referendums"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Story 14: Lifestyle & Work -->
+                    <article class="card-white explore-story-card" data-category="lifestyle"
+                        data-article-id="four-day-workweek"
+                        style="overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;">
+                            <img src="public/assets/images/analog-living.jpg" alt="Four-Day Workweek"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <span
+                                    style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Lifestyle
+                                    &amp; Economics</span>
+                                <h3 class="serif-font"
+                                    style="font-size:1.0625rem;font-weight:700;line-height:1.3;margin:0.25rem 0;">The
+                                    4-Day Workweek Experiment: Three Years Later</h3>
+                                <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;">
+                                    Longitudinal studies confirm improved cognitive resilience with zero loss in
+                                    institutional revenue.</p>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;color:var(--secondary);">
+                                <span>David Thorne • 5 min</span>
+                                <button data-bookmark-id="four-day-workweek" data-title="4-Day Workweek Experiment"
+                                    style="background:none;border:none;cursor:pointer;color:inherit;"><span
+                                        class="material-symbols-outlined"
+                                        style="font-size:18px;">bookmark_border</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div id="explore-empty-state" style="display:none;text-align:center;padding:3rem 1rem;">
+                    <h3 class="serif-font" style="font-size:1.25rem;">No dispatches match your search</h3>
+                    <p style="font-size:0.8125rem;color:var(--secondary);margin-top:0.25rem;">Try clearing the search
+                        query or category filters.</p>
+                </div>
+                <!-- Load More Action -->
+                <div style="text-align:center;margin-top:2.5rem;">
+                    <span id="explore-count-label"
+                        style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--secondary);display:block;margin-bottom:0.75rem;">Showing
+                        6 of 84 stories</span>
+                    <button id="load-more-btn" class="primary-btn"
+                        style="background:#fff;color:#1b1c1a;border:1px solid var(--border-color);padding:0.75rem 2rem;">
+                        <span>Load More Stories</span><span class="material-symbols-outlined">expand_more</span>
+                    </button>
+                </div>
+            </section>
+            <!-- ============================================== -->
+            <!-- VIEW 4: TOPICS DIRECTORY -->
+            <!-- ============================================== -->
+            <section id="view-topics" class="view-section">
+                <div style="margin-bottom:1.5rem;">
+                    <span style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;">Category
+                        Overview</span>
+                    <h1 class="serif-font" style="font-size:2rem;font-weight:700;margin:0.25rem 0;">Technology &amp; The
+                        Future</h1>
+                    <p style="font-size:0.875rem;color:var(--on-surface-variant);">Critical analysis of artificial
+                        intelligence, semiconductors, hardware, and digital economies.</p>
+                </div>
+                <!-- Special Report Spotlight -->
+                <div class="card-white" data-article-id="gallium-nitride"
+                    style="overflow:hidden;margin-bottom:2rem;cursor:pointer;">
+                    <div style="aspect-ratio:16/9;background:#e4e2df;position:relative;">
+                        <img src="public/assets/images/gallium-nitride.jpg" alt="Gallium Nitride Wafer"
+                            style="width:100%;height:100%;object-fit:cover;" />
+                        <span class="badge-tag badge-primary"
+                            style="position:absolute;top:1rem;left:1rem;background:var(--primary);color:#fff;">Special
+                            Report</span>
+                        <span
+                            style="position:absolute;bottom:1rem;right:1rem;background:rgba(0,0,0,0.6);color:#fff;font-size:11px;padding:0.25rem 0.5rem;border-radius:0.25rem;">8
+                            min read</span>
+                    </div>
+                    <div style="padding:1.5rem;">
+                        <span
+                            style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Hardware
+                            Disruption</span>
+                        <h2 class="serif-font" style="font-size:1.5rem;font-weight:700;margin:0.375rem 0;">Next-Gen
+                            Semiconductors: How Gallium Nitride Is Replacing Silicon</h2>
+                        <p style="font-size:0.875rem;color:var(--on-surface-variant);line-height:1.6;">As neural network
+                            power density collides with thermal limits, a new chemical compound breaks silicon’s
+                            monopoly.</p>
+                    </div>
+                </div>
+                <!-- Latest Tech Dispatches Grid -->
+                <h3 class="serif-font" style="font-size:1.25rem;font-weight:700;margin-bottom:1rem;">Latest Dispatches
+                </h3>
+                <div class="grid-2" style="margin-bottom:2rem;">
+                    <div class="card-white" data-article-id="open-source-ai"
+                        style="padding:1rem;display:flex;gap:1rem;align-items:center;cursor:pointer;">
+                        <img src="public/assets/images/open-source-ai.jpg" alt="Open Source AI"
+                            style="width:72px;height:72px;border-radius:0.5rem;object-fit:cover;" />
+                        <div>
+                            <span
+                                style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">AI
+                                Models</span>
+                            <h4 class="serif-font" style="font-size:0.9375rem;font-weight:700;line-height:1.3;">
+                                Open-Source LLMs Close the Efficiency Gap</h4>
+                            <span style="font-size:11px;color:var(--secondary);">18m ago • 5 min read</span>
+                        </div>
+                    </div>
+                    <div class="card-white" data-article-id="passkeys-security"
+                        style="padding:1rem;display:flex;gap:1rem;align-items:center;cursor:pointer;">
+                        <img src="public/assets/images/passkeys-security.jpg" alt="Passkeys Security"
+                            style="width:72px;height:72px;border-radius:0.5rem;object-fit:cover;" />
+                        <div>
+                            <span
+                                style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Security</span>
+                            <h4 class="serif-font" style="font-size:0.9375rem;font-weight:700;line-height:1.3;">
+                                Zero-Trust Authentication: Why Cryptographic Passkeys Replace Passwords</h4>
+                            <span style="font-size:11px;color:var(--secondary);">3h ago • 3 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ============================================== -->
+            <!-- VIEW 5: SAVED STORIES (POCKET) -->
+            <!-- ============================================== -->
+            <section id="view-saved" class="view-section">
+                <div style="margin-bottom:1.5rem;">
+                    <span style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;">Personal
+                        Pocket</span>
+                    <h1 class="serif-font" style="font-size:2rem;font-weight:700;margin:0.25rem 0;">Saved Dispatches
+                    </h1>
+                    <p style="font-size:0.875rem;color:var(--on-surface-variant);">Stored locally for quiet, focused
+                        reading.</p>
+                </div>
+                <div id="saved-empty-state" class="card-white"
+                    style="padding:3rem 1rem;text-align:center;display:none;">
+                    <span class="material-symbols-outlined"
+                        style="font-size:40px;color:var(--secondary);">bookmark_border</span>
+                    <h3 class="serif-font" style="font-size:1.25rem;font-weight:700;margin-top:0.5rem;">Your reading
+                        pocket is empty</h3>
+                    <p style="font-size:0.8125rem;color:var(--secondary);margin-top:0.25rem;">Tap the bookmark icon on
+                        any dispatch to save it here.</p>
+                    <button class="primary-btn" data-view="home" style="margin-top:1rem;">Browse Front Page</button>
+                </div>
+                <div id="saved-stories-list" class="grid-3">
+                    <article class="card-white saved-card-item" data-id="silicon-frontier"
+                        style="overflow:hidden;display:flex;flex-direction:column;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;cursor:pointer;" data-view="article">
+                            <img src="public/assets/images/microgrid-aerial.jpg"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <h3 class="serif-font"
+                                style="font-size:1.0625rem;font-weight:700;line-height:1.3;cursor:pointer;"
+                                data-view="article">The Silicon Frontier: Autonomous Micro-Grids</h3>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;">
+                                <button data-bookmark-id="silicon-frontier"
+                                    style="background:none;border:none;cursor:pointer;color:var(--primary);font-weight:700;">Remove</button>
+                                <button data-view="article"
+                                    style="background:none;border:none;cursor:pointer;font-weight:700;color:var(--on-surface);">Read
+                                    →</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card-white saved-card-item" data-id="urban-gen-z"
+                        style="overflow:hidden;display:flex;flex-direction:column;">
+                        <div style="aspect-ratio:16/10;background:#e4e2df;cursor:pointer;" data-view="article">
+                            <img src="public/assets/images/genz-urban.jpg"
+                                style="width:100%;height:100%;object-fit:cover;" />
+                        </div>
+                        <div
+                            style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                            <h3 class="serif-font"
+                                style="font-size:1.0625rem;font-weight:700;line-height:1.3;cursor:pointer;"
+                                data-view="article">The Silent Rewiring of Urban Life: Gen Z</h3>
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;font-size:11px;">
+                                <button data-bookmark-id="urban-gen-z"
+                                    style="background:none;border:none;cursor:pointer;color:var(--primary);font-weight:700;">Remove</button>
+                                <button data-view="article"
+                                    style="background:none;border:none;cursor:pointer;font-weight:700;color:var(--on-surface);">Read
+                                    →</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <!-- ============================================== -->
+            <!-- VIEW 6: ABOUT & NEWSROOM MANIFESTO -->
+            <!-- ============================================== -->
+            <section id="view-about" class="view-section">
+                <div style="margin-bottom:1.5rem;">
+                    <span
+                        style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;">Manifesto
+                        &amp; Standards</span>
+                    <h1 class="serif-font" style="font-size:2.5rem;font-weight:700;margin:0.25rem 0;">
+                        Stay Informed.<br /><span style="color:var(--primary);font-style:italic;">Stay Connected.</span>
+                    </h1>
+                    <p class="serif-font" style="font-size:1.125rem;color:var(--secondary);font-style:italic;">
+                        Journalism reimagined for an intentional generation.</p>
+                </div>
+                <!-- Reader Profile & Account Card -->
+                <div class="card-white" style="padding:1.5rem;margin-bottom:2rem;border-left:4px solid var(--primary);">
+                    <div
+                        style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem;">
+                        <div style="display:flex;align-items:center;gap:1rem;">
+                            <div
+                                style="width:54px;height:54px;border-radius:999px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;">
+                                <span class="material-symbols-outlined" style="font-size:28px;">person</span>
+                            </div>
+                            <div>
+                                <div style="display:flex;align-items:center;gap:0.5rem;">
+                                    <strong style="font-size:1.125rem;">Reader Member Profile</strong>
+                                    <span class="badge-tag badge-dark"
+                                        style="background:#e4e2df;color:#1b1c1a;font-size:10px;">Free Reader Tier</span>
+                                </div>
+                                <span style="font-size:0.8125rem;color:var(--secondary);">ardyseptia0@gmail.com • Member
+                                    since May 2025</span>
+                            </div>
+                        </div>
+                        <button class="primary-btn open-subscribe-modal-btn"
+                            style="padding:0.5rem 1rem;font-size:0.75rem;">Upgrade to Patron</button>
+                    </div>
+                    <div
+                        style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:1rem;padding-top:1rem;border-top:1px solid var(--border-light);font-size:0.75rem;">
+                        <div>
+                            <span style="color:var(--secondary);display:block;margin-bottom:0.25rem;">Saved
+                                Stories:</span>
+                            <strong id="profile-saved-count" style="font-size:0.9375rem;color:var(--primary);">2
+                                Dispatches in Pocket</strong>
+                        </div>
+                        <div>
+                            <span style="color:var(--secondary);display:block;margin-bottom:0.25rem;">Reading
+                                Pace:</span>
+                            <strong style="font-size:0.9375rem;">Calm &amp; Ad-Free (Default)</strong>
+                        </div>
+                        <div>
+                            <span style="color:var(--secondary);display:block;margin-bottom:0.25rem;">Morning
+                                Briefing:</span>
+                            <strong style="font-size:0.9375rem;color:#1b7e3e;">Active (Dawn 07:00 WIB)</strong>
+                        </div>
+                    </div>
+                </div>
+                <!-- Metrics Strip -->
+                <div class="grid-4" style="margin-bottom:2rem;">
+                    <div class="card-white" style="padding:1.25rem;">
+                        <span class="serif-font"
+                            style="font-size:2rem;font-weight:700;color:var(--primary);">2.4M</span>
+                        <strong style="display:block;font-size:0.75rem;margin-top:0.25rem;">Monthly Readers</strong>
+                        <span style="font-size:11px;color:var(--secondary);">Active digital reach</span>
+                    </div>
+                    <div class="card-white" style="padding:1.25rem;">
+                        <span class="serif-font" style="font-size:2rem;font-weight:700;">68%</span>
+                        <strong style="display:block;font-size:0.75rem;margin-top:0.25rem;">Ages 18–30</strong>
+                        <span style="font-size:11px;color:var(--secondary);">Young adult core</span>
+                    </div>
+                    <div class="card-white" style="padding:1.25rem;">
+                        <span class="serif-font" style="font-size:2rem;font-weight:700;">45+</span>
+                        <strong style="display:block;font-size:0.75rem;margin-top:0.25rem;">Global Bylines</strong>
+                        <span style="font-size:11px;color:var(--secondary);">Across 18 countries</span>
+                    </div>
+                    <div class="card-white" style="padding:1.25rem;">
+                        <span class="serif-font" style="font-size:2rem;font-weight:700;color:var(--primary);">12</span>
+                        <strong style="display:block;font-size:0.75rem;margin-top:0.25rem;">Global Honors</strong>
+                        <span style="font-size:11px;color:var(--secondary);">Press &amp; design awards</span>
+                    </div>
+                </div>
+                <!-- Three Pillars -->
+                <h3 class="serif-font" style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">Our Three Pillars
+                </h3>
+                <div class="grid-3" style="margin-bottom:2.5rem;">
+                    <div class="card-white" style="padding:1.5rem;">
+                        <span class="material-symbols-outlined"
+                            style="color:var(--primary);font-size:28px;">explore</span>
+                        <h4 class="serif-font" style="font-size:1.125rem;font-weight:700;margin:0.5rem 0;">Radical
+                            Clarity</h4>
+                        <p style="font-size:0.8125rem;color:var(--on-surface-variant);line-height:1.6;">We dismantle
+                            sensationalist hype. Every dispatch is vetted against empirical metrics before publication.
+                        </p>
+                    </div>
+                    <div class="card-white" style="padding:1.5rem;">
+                        <span class="material-symbols-outlined"
+                            style="color:var(--primary);font-size:28px;">verified_user</span>
+                        <h4 class="serif-font" style="font-size:1.125rem;font-weight:700;margin:0.5rem 0;">Independent
+                            Integrity</h4>
+                        <p style="font-size:0.8125rem;color:var(--on-surface-variant);line-height:1.6;">Strict
+                            separation of editorial and commercial operations with zero pay-for-play features.</p>
+                    </div>
+                    <div class="card-white" style="padding:1.5rem;">
+                        <span class="material-symbols-outlined"
+                            style="color:var(--primary);font-size:28px;">public</span>
+                        <h4 class="serif-font" style="font-size:1.125rem;font-weight:700;margin:0.5rem 0;">Modern
+                            Perspectives</h4>
+                        <p style="font-size:0.8125rem;color:var(--on-surface-variant);line-height:1.6;">Reporting
+                            designed for the polycrisis generation: climate, machine intelligence, and culture.</p>
+                    </div>
+                </div>
+                <!-- Whistleblower Form -->
+                <div class="card-white" style="padding:2rem;margin-bottom:2rem;">
+                    <span style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;">Secure
+                        Desk</span>
+                    <h3 class="serif-font" style="font-size:1.5rem;font-weight:700;margin:0.25rem 0;">Have a Story Lead?
+                    </h3>
+                    <p style="font-size:0.8125rem;color:var(--on-surface-variant);margin-bottom:1.5rem;">Submit
+                        confidential tips or verified whistleblowing data. Encrypted by default.</p>
+                    <form id="whistleblower-form" style="display:flex;flex-direction:column;gap:1rem;">
+                        <div>
+                            <label
+                                style="font-size:11px;font-weight:700;display:block;margin-bottom:0.25rem;">Submission
+                                Type</label>
+                            <select
+                                style="width:100%;padding:0.625rem;border-radius:0.5rem;border:1px solid var(--border-color);background:#f5f3f0;font-size:0.75rem;">
+                                <option>Confidential Investigative Whistleblower Lead</option>
+                                <option>Freelance Contributor Pitch</option>
+                                <option>Correction Request</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-size:11px;font-weight:700;display:block;margin-bottom:0.25rem;">Summary
+                                of Information</label>
+                            <textarea required
+                                style="width:100%;height:80px;padding:0.625rem;border-radius:0.5rem;border:1px solid var(--border-color);background:#f5f3f0;font-size:0.75rem;resize:none;"
+                                placeholder="Detail your information..."></textarea>
+                        </div>
+                        <button id="whistleblower-submit-btn" type="submit" class="primary-btn"
+                            style="padding:0.75rem;background:#1b1c1a;">Transmit to Secure Desk 🔒</button>
+                        <div id="whistleblower-success-box"
+                            style="display:none;background:var(--primary-fixed);color:var(--primary);padding:1rem;border-radius:0.5rem;font-size:0.8125rem;font-weight:700;">
+                            ✓ Transmission encrypted and safely stored in newsroom air-gap queue.
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- BROADSHEET FOOTER -->
+    <footer class="broadsheet-footer">
+        <div class="app-container">
+            <div class="footer-grid">
+                <div>
+                    <div style="display:flex;align-items:center;margin-bottom:0.75rem;">
+                        <img src="public/assets/images/logo-dark.svg" alt="KABARIN."
+                            style="height:26px;object-fit:contain;" />
+                    </div>
+                    <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.6;max-width:320px;">
+                        Stay Informed. Stay Connected. Calm, intentional, and authoritative visual journalism engineered
+                        for modern thinkers.
+                    </p>
+                </div>
+                <div>
+                    <strong
+                        style="font-size:0.75rem;text-transform:uppercase;display:block;margin-bottom:0.75rem;">Sections</strong>
+                    <ul style="list-style:none;font-size:0.75rem;display:flex;flex-direction:column;gap:0.5rem;">
+                        <li><a href="#" data-view="home" style="text-decoration:none;color:inherit;">National Desk</a>
+                        </li>
+                        <li><a href="#" data-view="topics" style="text-decoration:none;color:inherit;">Technology &amp;
+                                Future</a></li>
+                        <li><a href="#" data-view="explore" style="text-decoration:none;color:inherit;">Culture &amp;
+                                Entertainment</a></li>
+                        <li><a href="#" data-view="explore" style="text-decoration:none;color:inherit;">Modern
+                                Lifestyle</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <strong
+                        style="font-size:0.75rem;text-transform:uppercase;display:block;margin-bottom:0.75rem;">Bureaus</strong>
+                    <ul
+                        style="list-style:none;font-size:0.75rem;display:flex;flex-direction:column;gap:0.5rem;color:var(--secondary);">
+                        <li><strong>Jakarta HQ:</strong> SCBD Lot 28</li>
+                        <li><strong>Singapore Bureau:</strong> MBFC</li>
+                        <li><strong>Berlin Bureau:</strong> Torstraße 140</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong
+                        style="font-size:0.75rem;text-transform:uppercase;display:block;margin-bottom:0.75rem;">Standards</strong>
+                    <ul style="list-style:none;font-size:0.75rem;display:flex;flex-direction:column;gap:0.5rem;">
+                        <li><a href="#" data-view="about" style="text-decoration:none;color:inherit;">Editorial Code of
+                                Ethics</a></li>
+                        <li><a href="#" data-view="about" style="text-decoration:none;color:inherit;">Press Council
+                                Certification</a></li>
+                        <li><a href="#" data-view="about" style="text-decoration:none;color:inherit;">Whistleblower
+                                Shield</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border-color);display:flex;flex-wrap:wrap;justify-content:space-between;font-size:11px;color:var(--secondary);">
+                <span>© 2025 PT KABARIN Media Nusantara. Registered with the National Press Council No.
+                    441/DP/2024.</span>
+                <span>ISSN: 2984-9102 • All Global Rights Reserved</span>
+            </div>
+        </div>
+    </footer>
+    <!-- MOBILE BOTTOM NAVIGATION (< 768px) -->
+    <nav class="mobile-bottom-nav">
+        <button class="mobile-tab-btn active" data-view="home">
+            <span class="material-symbols-outlined" style="font-size:22px;">newspaper</span>
+            <span>Edition</span>
+        </button>
+        <button class="mobile-tab-btn" data-view="explore">
+            <span class="material-symbols-outlined" style="font-size:22px;">trending_up</span>
+            <span>Trending</span>
+        </button>
+        <button class="mobile-tab-btn" data-view="topics">
+            <span class="material-symbols-outlined" style="font-size:22px;">grid_view</span>
+            <span>Topics</span>
+        </button>
+        <button class="mobile-tab-btn" data-view="saved">
+            <span class="material-symbols-outlined" style="font-size:22px;">bookmarks</span>
+            <span>Saved</span>
+        </button>
+        <button class="mobile-tab-btn" data-view="about">
+            <span class="material-symbols-outlined" style="font-size:22px;">account_circle</span>
+            <span>Profile</span>
+        </button>
+    </nav>
+    <!-- SEARCH MODAL (⌘K) -->
+    <div id="search-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div
+                style="padding:1rem;border-bottom:1px solid var(--border-color);display:flex;align-items:center;gap:0.5rem;background:#fbf9f6;">
+                <span class="material-symbols-outlined" style="color:var(--secondary);">search</span>
+                <input id="modal-search-input" type="text" placeholder="Search dispatches, authors, tags..."
+                    style="border:none;outline:none;flex:1;background:transparent;font-size:0.875rem;" />
+                <button class="close-modal-btn"
+                    style="background:none;border:none;cursor:pointer;color:var(--secondary);">✕</button>
+            </div>
+            <div id="modal-search-results" style="padding:1rem;overflow-y:auto;max-height:300px;">
+                <p style="color:var(--secondary);font-size:0.75rem;">Type to search all KABARIN dispatches, archives,
+                    and authors...</p>
+            </div>
+        </div>
+    </div>
+    <!-- SUBSCRIBE MODAL -->
+    <div id="subscribe-modal" class="modal-overlay">
+        <div class="modal-card" style="padding:1.5rem;max-width:440px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+                <span style="font-size:10px;font-weight:700;color:var(--primary);text-transform:uppercase;">Dawn
+                    Dispatch</span>
+                <button class="close-modal-btn" style="background:none;border:none;cursor:pointer;">✕</button>
+            </div>
+            <h3 class="serif-font" style="font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;">KABARIN Morning
+                Briefing</h3>
+            <p style="font-size:0.75rem;color:var(--on-surface-variant);line-height:1.5;margin-bottom:1rem;">
+                Get 5 curated stories delivered to your inbox every dawn at 7:00 AM. Clear, authoritative, completely
+                ad-free journalism.
+            </p>
+            <form id="modal-subscribe-form" style="display:flex;flex-direction:column;gap:0.75rem;">
+                <input type="email" placeholder="reader@domain.com" required
+                    style="padding:0.625rem;border-radius:0.5rem;border:1px solid var(--border-color);background:#fbf9f6;font-size:0.75rem;" />
+                <button type="submit" class="primary-btn" style="padding:0.75rem;">Subscribe Dawn →</button>
+            </form>
+        </div>
+    </div>
+    <!-- TOAST CONTAINER -->
+    <div id="toast-container" class="toast-box"></div>
+    <!-- PURE VANILLA JAVASCRIPT BUNDLE -->
+    <script src="script.js"></script>
+</body>
+
+</html>
